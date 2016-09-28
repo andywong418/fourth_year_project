@@ -58,8 +58,14 @@ class GoogleSpider(scrapy.Spider):
 
             ## Get the selector for xpath parsing
             sel = Selector(response)
-            google_search_links_list =  sel.xpath('//h3/a/@href').extract()
-            google_search_links_list = [re.search('q=(.*)&sa',n).group(1) for n in google_search_links_list if re.search('q=(.*)&sa',n)]
+            print("SELECTOR")
+            print sel
+            google_search_links_list =  sel.xpath('//img/@src').extract()
+            print 'one'
+            # print google_search_links_list
+            # google_search_links_list = [re.search('q=(.*)&sa',n).group(1) for n in google_search_links_list if re.search('q=(.*)&sa',n)]
+            # print 'two'
+            print google_search_links_list
             print len(google_search_links_list)
             ## Display a list of the result link
             for n in google_search_links_list:
@@ -67,6 +73,9 @@ class GoogleSpider(scrapy.Spider):
 
             self.combine_all_url_link_for_multiple_search(google_search_links_list)
         if self.setting_data['type_of_parse'] == 'general':
+            # Need to separate out one subject - i.e. need to find price for Toyota SUV 1000 or whatever, Chevrolet 3000, etc. Give some example car brands.
+            # Need to specify purpose - image detection, label (e.g. price prediction) and datatype. Find label and
+            # Also need to include false data.
             print
             print "General link scraping"
             sel = Selector(response)

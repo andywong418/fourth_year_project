@@ -31,5 +31,5 @@ if __name__ == '__main__':
     crawler.set_setting_to_json_file(temp_data_for_store)
 
     ## Run the crawler -- and remove the pause if do not wish to see contents of the command prompt
-    new_project_cmd = 'scrapy settings -s DEPTH_LIMIT=1 & cd "%s" & scrapy runspider %s' %(spider_file_path,spider_filename)
+    new_project_cmd = 'cd "%s" & scrapy runspider %s' %(spider_file_path,spider_filename)
     os.system(new_project_cmd)
