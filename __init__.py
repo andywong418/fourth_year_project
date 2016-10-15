@@ -60,11 +60,8 @@ class GoogleSpider(scrapy.Spider):
             sel = Selector(response)
             print("SELECTOR")
             print sel
-            google_search_links_list =  sel.xpath('//img/@src').extract()
-            print 'one'
-            # print google_search_links_list
-            # google_search_links_list = [re.search('q=(.*)&sa',n).group(1) for n in google_search_links_list if re.search('q=(.*)&sa',n)]
-            # print 'two'
+            google_search_links_list =  sel.xpath('//h3/a/@href').extract()
+            google_search_links_list = [re.search('q=(.*)&sa',n).group(1) for n in google_search_links_list if re.search('q=(.*)&sa',n)]
             print google_search_links_list
             print len(google_search_links_list)
             ## Display a list of the result link

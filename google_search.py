@@ -11,7 +11,7 @@ if __name__ == '__main__':
         Running the google search
     '''
     # User options
-    NUM_SEARCH_RESULTS = 300    # number of search results returned
+    NUM_SEARCH_RESULTS = 50    # number of search results returned
 
     print 'Start search'
 
@@ -29,7 +29,6 @@ if __name__ == '__main__':
     print 'Get the google search results links'
     crawler = url_constructor(search_subject, search_label)
     crawler.num_of_search_results(NUM_SEARCH_RESULTS)
-    crawler.image_detection = True
     crawler.data_format = 1
     crawler.set_pages_url()
 

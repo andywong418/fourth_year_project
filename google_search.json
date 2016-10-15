@@ -5,8 +5,6 @@
     ], 
     "Name": "first_level_search", 
     "SearchUrl": [
-        "https://www.google.com/search?q=car&num=100&start=0&tbm=isch", 
-        "https://www.google.com/search?q=car&num=100&start=100&tbm=isch", 
-        "https://www.google.com/search?q=car&num=100&start=200&tbm=isch"
+        "https://www.google.com/search?q=car+price&num=100&start=0"
     ]
 }

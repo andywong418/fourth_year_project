@@ -25,11 +25,11 @@ class url_constructor(object):
         print self.label
         s = "+"
         seq = (self.subject, self.label)
-        if self.image_detection:
-            self.search_key = self.subject
-        else:
-            self.search_key = s.join(seq)
-            self.search_key = self.search_key.rstrip().replace(' ', '+')
+        # if self.image_detection:
+        #     self.search_key = self.subject
+        # else:
+        self.search_key = s.join(seq)
+        self.search_key = self.search_key.rstrip().replace(' ', '+')
     def num_of_search_results(self, number):
         self.search_results_number = number
     def set_scan_number_of_pages(self):
@@ -48,16 +48,9 @@ class url_constructor(object):
         print self.search_key
         self.url_array = []
         for n in range(0, self.pages_to_scan, 1):
-            if self.image_detection:
-                self.image_detector()
-                self.output_url = self.prefix_search_text + self.search_key + \
-                                self.postfix_search_text + \
-                                self.target_page(n) + \
-                                self.image_query
-            else:
-                self.output_url = self.prefix_search_text + self.search_key + \
-                                self.postfix_search_text + \
-                                self.target_page(n)
+            self.output_url = self.prefix_search_text + self.search_key + \
+                            self.postfix_search_text + \
+                            self.target_page(n)
             print "HELLO"
             print self.output_url
             self.url_array.append(self.output_url)
